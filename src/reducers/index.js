@@ -5,14 +5,19 @@ export const initialState = {
     error: ''
 }
 
-const reducer = ()=>{
+const reducer = (state = initialState, action) => {
+    switch (action.type) {
+
+        default:
+            return state;
+    }
 }
 
 //**************DO NOT EDIT ANY CODE BEYOND THIS POINT**************//
 export default reducer;
 
 //Task List:
-//1. Adds the following state values into the initialState:
+// [x] 1. Adds the following state values into the initialState:
 //  - an array of smurfs
 //  - a boolean indicating if the app is loading
 //  - a string indicating a possible error message
