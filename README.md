@@ -15,21 +15,35 @@ You are not allowed to collaborate during the sprint challenge.
 In this challenge, you are to build a Smurfs village database utilizing Redux as your state management system. Build this challenge from the ground up using what you have learned about state management.
 
 ## Project Setup
-* [ ] Run npm install to install your dependencies.
-* [ ] Run npm start to run your frontend and backend code automatically.
-* [ ] Note your backend code will run automatically when your run npm start. There is no need to seperately run a server.js file and no means to test the server through postman or the browser. Feel free to ignore any messages related to MSW or mock service workers.
+* [x] Run npm install to install your dependencies.
+* [x] Run npm start to run your frontend and backend code automatically.
+* [x Note your backend code will run automatically when your run npm start. There is no need to seperately run a server.js file and no means to test the server through postman or the browser. Feel free to ignore any messages related to MSW or mock service workers.
 
 ## Project Instructions
 
 In this project, you will build the reducer, actions and basic redux connects nessiary to display smurf data. You will be implementing both thunk and traditional redux actions.
-
  
 ## Project Requirements
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #### Complete reducers/index.js
   Add in the needed state and reducer cases to hold and modify smurf error messages, loading status and smurf data. **If at all possible, add in action cases one at a time, instead of all at once. Test your state connects and reducer cases as nessisary.**
 
-  * [ ] Adds the following state values into the initialState:
+  * [x] Adds the following state values into the initialState:
       - an array of smurfs
       - a boolean indicating if the app is loading
       - a string indicating a possible error message
@@ -110,10 +124,10 @@ In this project, you will build the reducer, actions and basic redux connects ne
 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. Add your answers to the questions within `interview_answers.md` file. These will not be counted as a part of your sprint score but will be helpful for preparing you for your endorsement interview, and enhancing overall understanding.
 
-1. What problem does the context API help solve?
+1. What problem does the context API help solve? It makes global state easier to manage. It is a simpler sort of Redux but not as widely used due to it's young age.
 
-2. In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+2. In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application? Actions take user events and place them all in one spot, ready to ship over to the reducer. The reducer then selects a given action then does something to it, then returns it to the global state/store.
 
-3. What does `redux-thunk` allow us to do? How does it change our `action-creators`?
+3. What does `redux-thunk` allow us to do? How does it change our `action-creators`? Thunk allows us to return more than 1 action at a time. Thunk is like a bouncer (per TA Chris.)
 
-4. What is your favorite state management system you've learned and this sprint? Please explain why!
+4. What is your favorite state management system you've learned and this sprint? Please explain why! Context API due to it's simplicity. It is like flexbox for CSS.
