@@ -12,7 +12,7 @@ import {
 export const initialState = {
     smurfs: [],
     isLoading: false,
-    error: ''
+    error: 'THINGS ARE NOT RIGHT.'
 }
 
 const reducer = (state = initialState, action) => {
@@ -39,7 +39,7 @@ const reducer = (state = initialState, action) => {
                 error: action.payload
             }
 
-        case ADD_SMURF:   // Have not sanity checked yet.
+        case ADD_SMURF:   // Have not sanity checked yet. Not sure if state is correct either.
             return {
                 ...state,
                 payload: action.payload

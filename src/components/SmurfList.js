@@ -1,8 +1,21 @@
 import React from 'react';
 import Smurf from './Smurf';
 
-const SmurfList = () => {
-    const isLoading = false;
+import { connect } from 'react-redux';
+import { fetchSmurfs } from '../actions/index'; // NEVER EVER EVER copy and paste imports. One '.' cost me 20 minutes.
+
+
+
+const SmurfList = (props) => {
+
+    const { isLoading, smurfs, error } = props;
+
+    // console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@', props)
+
+
+
+    // const isLoading = false; // Was a statid variable.
+
     const testSmurf = {
         id: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
         name: 'Poppa Smurf',
@@ -15,14 +28,24 @@ const SmurfList = () => {
         return <h1>Loading...</h1>;
     }
 
-    return (<div className="listContainer">
-        <Smurf smurf={testSmurf} />
-    </div>);
+    return (
+        <div className="listContainer">
+            <Smurf smurf={testSmurf} />
+        </div>
+    );
 }
 
-export default SmurfList;
+const mapStateToProps = state => ({  // needs parentheses if an implicit return, otherwise 'return {}' needed.
+    isLoading: state.isLoading,
+    smurfs: state.smurfs,
+    error: state.error
+})
+
+// export default SmurfList;
+export default connect(mapStateToProps, { fetchSmurfs })(SmurfList)
+
 
 //Task List:
-//1. Connect the smurfs and loading state values to the SmurfList component.
+//1. [x] Connect the smurfs and loading state values to the SmurfList component.
 //2. Replace the single Smurf component instance with a map return a Smurf component for each entry in the smurfs list.
 //3. Replace the static isLoading variable with the state loading variable.
