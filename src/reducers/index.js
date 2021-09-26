@@ -12,7 +12,7 @@ import {
 export const initialState = {
     smurfs: [],
     isLoading: false,
-    error: 'THINGS ARE NOT RIGHT.'
+    error: ''
 }
 
 const reducer = (state = initialState, action) => {
@@ -22,34 +22,33 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: true,
-                error: ''
             }
 
         case FETCH_SUCCESS:
             return {
                 ...state,
                 isLoading: false,
-                error: '',
                 smurfs: action.payload
             }
 
-        case FETCH_FAIL:  // Sanity check by changing fetch URL
+        case FETCH_FAIL:  // Sanity checked by changing fetch URL
             return {
                 ...state,
-                error: action.payload
+                error: action.payload,
+                isLoading: false
             }
 
         case ADD_SMURF:   // Have not sanity checked yet. Not sure if state is correct either.
             return {
                 ...state,
-                payload: action.payload
+                smurfs: [...state.smurfs, action.payload]
             }
 
         case SET_ERROR:
             return {
                 ...state,
                 error: '',
-                payload: action.payload
+                error: action.payload
             }
 
         default:

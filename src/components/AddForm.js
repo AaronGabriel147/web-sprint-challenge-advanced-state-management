@@ -3,20 +3,23 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { setError, addSmurf } from '../actions/index';
 
-const AddForm = (props) => {
-    const [state, setState] = useState({
-        name:"",
-        position:"",
-        nickname:"",
-        description:""
-    });
 
-    
+
+const AddForm = (props) => {
+
+    console.log('$$$$$$$$$$$', props)
+
+    const [state, setState] = useState({
+        name: "",
+        position: "",
+        nickname: "",
+        description: ""
+    });
 
     const handleChange = e => {
         setState({
             ...state,
-            [e.target.name]:e.target.value
+            [e.target.name]: e.target.value
         });
     }
 
@@ -25,26 +28,33 @@ const AddForm = (props) => {
         props.addSmurf(state);
         if (state.name === "" || state.position === "" || state.nickname === "") {
             props.setError("Name, position and nickname fields are required.");
+        } else {
+            props.addSmurf({
+                name: state.name,
+                position: state.position,
+                nickname: state.nickname,
+                description: state.description
+            })
         }
     }
 
-    return(<section>
+    return (<section>
         <h2>Add Smurf</h2>
         <form onSubmit={handleSubmit}>
             <div className="form-group">
-                <label htmlFor="name">Name:</label><br/>
+                <label htmlFor="name">Name:</label><br />
                 <input onChange={handleChange} value={state.name} name="name" id="name" />
             </div>
             <div className="form-group">
-                <label htmlFor="position">Position:</label><br/>
+                <label htmlFor="position">Position:</label><br />
                 <input onChange={handleChange} value={state.position} name="position" id="position" />
             </div>
             <div className="form-group">
-                <label htmlFor="nickname">Nickname:</label><br/>
+                <label htmlFor="nickname">Nickname:</label><br />
                 <input onChange={handleChange} value={state.nickname} name="nickname" id="nickname" />
             </div>
             <div className="form-group">
-                <label htmlFor="description">Description:</label><br/>
+                <label htmlFor="description">Description:</label><br />
                 <textarea onChange={handleChange} value={state.description} name="description" id="description" />
             </div>
             {
@@ -62,11 +72,41 @@ const mapStateToProps = state => {
 }
 
 const mapActionsToProps = {
-    setError, 
-    addSmurf 
+    setError,
+    addSmurf
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(AddForm);
+
+
+// Task List:
+
+// 1. [x] Connect the errorMessage, setError and addSmurf actions to the AddForm component.
+
+// 2. [x] Replace all instances of the errorMessage static variable with your error message state value. 
+
+// 3. Within the handleSubmit function, replace the static assignment to errorMessage with a call 
+//    to the setError action. Test that an error is displayed when this validation code fails.
+
+// 4. Within the handleSubmit function, call your addSmurf action with the smurf name, position, 
+//    nickname and summury passed as arguments. Test that a smurf is correctly added to when the form is submitted.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // __________________________________________________________________________
@@ -107,7 +147,7 @@ export default connect(mapStateToProps, mapActionsToProps)(AddForm);
 //         e.preventDefault();
 //         if (state.name === "" || state.position === "" || state.nickname === "") {
 //             //add in error action
-            
+
 //         }
 //     }
 
