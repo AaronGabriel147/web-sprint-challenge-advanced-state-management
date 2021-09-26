@@ -48,6 +48,7 @@ const reducer = (state = initialState, action) => {
         case SET_ERROR:
             return {
                 ...state,
+                error: '',
                 payload: action.payload
             }
 
