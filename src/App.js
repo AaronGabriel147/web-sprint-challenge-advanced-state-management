@@ -5,12 +5,8 @@ import Header from './components/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
-
-
 import { fetchSmurfs } from './actions/index';
-
 import {connect} from 'react-redux';
-
 
 
 
