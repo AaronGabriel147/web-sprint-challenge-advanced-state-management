@@ -61,6 +61,8 @@ describe("Validation Testing:", ()=>{
     
         expect(nicknameTest).not.toBeNull();
         expect(errorTest).not.toBeNull();
+
+        screen.debug()
     });
 });
 
