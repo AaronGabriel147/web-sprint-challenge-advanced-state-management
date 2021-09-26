@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { setError, addSmurf } from '../actions/index';
+import { setError, addSmurf } from '../actions'; // index not needed
 
 
 
@@ -25,16 +25,10 @@ const AddForm = (props) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        props.addSmurf(state);
         if (state.name === "" || state.position === "" || state.nickname === "") {
             props.setError("Name, position and nickname fields are required.");
         } else {
-            props.addSmurf({
-                name: state.name,
-                position: state.position,
-                nickname: state.nickname,
-                description: state.description
-            })
+            props.addSmurf(state)
         }
     }
 

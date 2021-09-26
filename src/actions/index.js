@@ -32,17 +32,37 @@ export const fetchFail = (error) => {
     return {type: FETCH_FAIL, payload: error}
 }
 
-// export const addSmurf = (smurf) => {
-//     return{type: ADD_SMURF, payload: smurf}
-// }
-
-export const addSmurf = (name, position, nickname, description) => {
-    return{type: ADD_SMURF, payload: name, position, nickname, description}
+export const addSmurf = (smurf) => {
+    return{type: ADD_SMURF, payload: smurf}
 }
+
+// export const addSmurf = (name, position, nickname, description) => {
+//     return{type: ADD_SMURF, payload: name, position, nickname, description}
+// }
 
 export const setError = (error) => {
     return{type: SET_ERROR, payload: error}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
